@@ -20,9 +20,7 @@ class Index extends \Magento\Framework\View\Element\Template
     }
     public function _prepareLayout()
     {
-
         $this->pageConfig->getTitle()->set(__('Feedback'));
-
         return parent::_prepareLayout();
     }
 }

@@ -1,11 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Excellence\Feedback\Controller\Index;
 
 class Index extends \Magento\Framework\App\Action\Action
 {
-
     protected $resultPageFactory;
 
     /**
@@ -21,7 +21,6 @@ class Index extends \Magento\Framework\App\Action\Action
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
-
     /**
      * Execute view action
      *
@@ -29,10 +28,8 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
- 
         $this->_view->loadLayout();
         $this->_view->getLayout()->initMessages();
         $this->_view->renderLayout();
     }
 }
-
