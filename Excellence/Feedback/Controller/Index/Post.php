@@ -65,7 +65,7 @@ class Post extends \Magento\Framework\App\Action\Action
             $transport->sendMessage();
 
             $this->_inlineTranslation->resume();
-            $this->messageManager->addSuccess('Thankyou for your feedback.');
+            $this->messageManager->addSuccess(__('Thankyou for your feedback'));
         } catch (\Exception $e) {
             $this->messageManager->addError($e->getMessage());
             $this->_logLoggerInterface->debug($e->getMessage());
