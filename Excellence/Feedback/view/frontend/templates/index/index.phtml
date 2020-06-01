@@ -1,15 +1,18 @@
+<?php
+$customerData = $block->getCustomerData();
+?>
 <form action="<?php echo $block->getUrl('feedback/index/post/'); ?>" name="feedbackform" method="post" id="contactForm-1" data-hasrequired="<?php echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
     <fieldset class="fieldset">
         <div class="field email required">
             <label class="label" for="email"><span><?php echo __('Name') ?></span></label>
             <div class="control">
-                <input name="name" id="name" title="<?php echo __('Name') ?>" value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('name') ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}" />
+                <input name="name" id="name" title="<?php echo __('Name') ?>" value="<?php if ($customerData) { echo $customerData->getfirstname() . " " . $customerData->getlastname();} ?>" class="input-text" type="text" data-validate="{required:true}" />
             </div>
         </div>
         <div class="field email required">
             <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
             <div class="control">
-                <input name="email" id="email" title="<?php echo __('Email') ?>" value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('email') ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}" />
+                <input name="email" id="email" title="<?php echo __('Email') ?>" value="<?php if ($customerData) { echo $customerData->getEmail(); } ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}" />
             </div>
         </div>
         <div class="field email">
