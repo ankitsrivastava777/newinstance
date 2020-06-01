@@ -15,7 +15,7 @@
         <div class="field email">
             <label class="label" for="telephone"><span><?php echo __('Phone Number') ?></span></label>
             <div class="control">
-                <input name="phone" id="phone" title="<?php echo __('Phone') ?>" class="input-text" type="text" data-validate="{'validate-number':true}" />
+                <input name="phone" id="phone" title="<?php echo __('Phone') ?>" value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('telephone')) ?>" class="input-text" type="text" data-validate="{'validate-number':true}" />
             </div>
         </div>
         <div class="field email required">
